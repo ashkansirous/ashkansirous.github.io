@@ -1,0 +1,77 @@
+---
+const caseStudies = [
+  {
+    org: 'Templafy',
+    period: '2024–2026',
+    title: 'AI-interaction observability platform',
+    desc: 'Observability over full LLM interactions — user turns, system prompts, tool calls, context — as the backbone of a triage → evaluation → fix loop across ~30 engineers and six AI-agent teams, in partnership with InfoSec.',
+    tags: ['C#/.NET', 'Azure · AKS', 'LLM observability'],
+    metric: '~30',
+    metricLabel: 'engineers served',
+  },
+  {
+    org: 'Templafy',
+    period: '2024–2026',
+    title: 'Declarative AI evaluation framework',
+    desc: 'A declarative framework with 20+ evaluators for non-deterministic testing and safe LLM model-swapping — every fix must pass all prior evaluations before it ships.',
+    tags: ['C#/.NET', 'LLM eval', 'Testing'],
+    metric: '20+',
+    metricLabel: 'evaluators',
+  },
+  {
+    org: 'Templafy',
+    period: '2025',
+    title: 'Zero-downtime AI system consolidation',
+    desc: 'Led a zero-downtime consolidation of core AI features into a single unified service across a 40+ engineer codebase.',
+    tags: ['C#/.NET', 'Microservices', 'Migration'],
+    metric: '0',
+    metricLabel: 'downtime',
+  },
+  {
+    org: 'Templafy',
+    period: '2021',
+    title: '“Resource Diagram” — product-led discovery',
+    desc: 'In an empowered product trio, I caught an off-roadmap customer pain during discovery and shipped a database-style visualisation as a ~2-day experiment with one frontend engineer — one of the year’s most successful features, shown by the CPO at all-hands.',
+    tags: ['Product discovery', 'Data viz', 'React'],
+    metric: '~2d',
+    metricLabel: 'to first ship',
+  },
+];
+---
+
+<section id="work" class="reveal scroll-mt-16 border-t border-line dark:border-night-line">
+  <div class="mx-auto max-w-5xl px-6 py-16 sm:py-20">
+    <p class="font-mono text-xs uppercase tracking-[0.22em] text-clay">02 — Selected work</p>
+    <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight text-ink dark:text-night-text">
+      Case studies
+    </h2>
+    <div class="mt-5 h-[3px] w-14 rounded-full bg-clay"></div>
+
+    <div class="mt-10 space-y-6">
+      {
+        caseStudies.map((cs) => (
+          <article class="flex flex-col gap-8 rounded-xl bg-ink p-7 sm:flex-row sm:items-center sm:p-9 dark:bg-night-surface">
+            <div class="min-w-0 flex-1">
+              <div class="font-mono text-xs uppercase tracking-[0.12em] text-clay">
+                {cs.org} · {cs.period}
+              </div>
+              <h3 class="mt-3 max-w-[26ch] font-display text-2xl font-semibold text-white">
+                {cs.title}
+              </h3>
+              <p class="mt-3 max-w-2xl leading-relaxed text-band-sub">{cs.desc}</p>
+              <div class="mt-5 flex flex-wrap gap-2 font-mono text-xs">
+                {cs.tags.map((tag) => (
+                  <span class="rounded-full border border-white/20 px-3 py-1 text-band-sub">{tag}</span>
+                ))}
+              </div>
+            </div>
+            <div class="shrink-0 text-left sm:w-32 sm:text-right">
+              <div class="font-display text-5xl font-bold leading-none text-white">{cs.metric}</div>
+              <div class="mt-2 text-sm text-night-faint">{cs.metricLabel}</div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

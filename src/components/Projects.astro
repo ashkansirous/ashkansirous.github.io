@@ -1,0 +1,69 @@
+---
+import { getFeaturedProjects, relativeUpdated, CONTRIBUTIONS } from '../lib/github';
+
+const projects = await getFeaturedProjects();
+
+const statusStyles: Record<string, string> = {
+  Active:
+    'text-status-active-fg bg-status-active-bg',
+  WIP: 'text-status-wip-fg bg-status-wip-bg',
+};
+---
+
+<section id="open-source" class="reveal scroll-mt-16 border-t border-line dark:border-night-line">
+  <div class="mx-auto max-w-5xl px-6 py-16 sm:py-20">
+    <p class="font-mono text-xs uppercase tracking-[0.22em] text-clay">03 — Open source</p>
+    <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight text-ink dark:text-night-text">
+      Public projects
+    </h2>
+    <div class="mt-5 h-[3px] w-14 rounded-full bg-clay"></div>
+    <p class="mt-6 max-w-2xl text-muted dark:text-night-muted">
+      Pulled from GitHub at build time, so the state below reflects each repo as of the last deploy.
+    </p>
+
+    <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+      {
+        projects.map((p) => (
+          <a
+            href={p.url}
+            class="group flex flex-col rounded-xl border border-line bg-card p-7 transition hover:-translate-y-0.5 hover:border-clay-ring hover:shadow-lg dark:border-night-line dark:bg-night-surface"
+          >
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-faint dark:text-night-faint">{p.language}</span>
+              <span class={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-mono text-[11px] uppercase tracking-wide ${statusStyles[p.status]}`}>
+                <span class="size-1.5 rounded-full bg-current" />
+                {p.status}
+              </span>
+            </div>
+            <h3 class="mt-4 font-display text-xl font-semibold text-ink dark:text-night-text">
+              {p.name}
+            </h3>
+            <p class="mt-2 flex-1 leading-relaxed text-muted dark:text-night-muted">{p.description}</p>
+            <div class="mt-5 flex items-center justify-between border-t border-line pt-4 font-mono text-xs text-faint dark:border-night-line dark:text-night-faint">
+              <span>★ {p.stars}{relativeUpdated(p.pushedAt) ? ` · ${relativeUpdated(p.pushedAt)}` : ''}</span>
+              <span class="font-medium text-clay">View repo →</span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="mt-10">
+      <h3 class="font-display text-sm font-medium uppercase tracking-wider text-faint">
+        Open-source contributions
+      </h3>
+      <div class="mt-4 flex flex-wrap gap-2">
+        {
+          CONTRIBUTIONS.map((c) => (
+            <a
+              href={c.url}
+              class="rounded-full border border-line bg-card px-3.5 py-1.5 font-mono text-xs text-muted transition hover:border-clay-ring hover:text-clay dark:border-night-line dark:bg-night-surface dark:text-night-muted"
+            >
+              {c.name} <span class="text-faint dark:text-night-faint">— {c.detail}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

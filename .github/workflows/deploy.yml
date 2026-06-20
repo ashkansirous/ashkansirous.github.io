@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Daily rebuild so the GitHub-driven project state stays fresh without a code push.
+  schedule:
+    - cron: '0 6 * * *'
   # Allows manual runs from the Actions tab.
   workflow_dispatch:
 
@@ -25,6 +28,9 @@ jobs:
         uses: actions/checkout@v6
       - name: Install, build, and upload your site
         uses: withastro/action@v6
+        env:
+          # Authenticates the build-time GitHub API calls (higher rate limit, public read).
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
     needs: build

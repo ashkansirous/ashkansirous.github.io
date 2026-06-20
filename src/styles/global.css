@@ -3,9 +3,46 @@
 /* Class-based dark mode: toggled by adding `.dark` to <html>. */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/*
+  Design tokens — mirrors the "Ashkan Personal website" Claude Design system.
+  Navy + charcoal on warm paper, one warm clay accent, Space Grotesk / IBM Plex.
+*/
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Light — brand & surfaces */
+  --color-paper: #efebe3;
+  --color-ink: #102a43;
+  --color-charcoal: #2a3a4a;
+  --color-muted: #56646f;
+  --color-faint: #7a8794;
+  --color-card: #ffffff;
+  --color-line: #e4ded3;
+
+  /* Accent — clay */
+  --color-clay: #de5b3b;
+  --color-clay-deep: #b8472a;
+  --color-clay-soft: #fbe9e2;
+  --color-clay-ring: #f1c9bd;
+
+  /* Dark — deep navy */
+  --color-night: #0c1a29;
+  --color-night-surface: #122a40;
+  --color-night-line: #1e3a55;
+  --color-night-text: #e7eef5;
+  --color-night-muted: #9fb3c7;
+  --color-night-faint: #7e93a8;
+
+  /* Hero band subtitle (on navy, both themes) */
+  --color-band-sub: #afc4da;
+
+  /* Status — project state */
+  --color-status-active-fg: #15803d;
+  --color-status-active-bg: #dcfce7;
+  --color-status-wip-fg: #b45309;
+  --color-status-wip-bg: #fef3c7;
 }
 
 @layer base {

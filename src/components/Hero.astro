@@ -6,51 +6,72 @@ const socials = [
 ];
 ---
 
-<section id="top" class="relative overflow-hidden">
-  <!-- Subtle accent glow -->
+<section id="top" class="relative overflow-hidden bg-ink dark:bg-night-surface">
+  <!-- Subtle accent glow, top-right -->
   <div
     aria-hidden="true"
-    class="pointer-events-none absolute -top-32 left-1/2 -z-10 h-72 w-[42rem] -translate-x-1/2 rounded-full bg-sky-500/10 blur-3xl dark:bg-sky-400/10"
+    class="pointer-events-none absolute inset-y-0 right-0 w-[42%] bg-[radial-gradient(120%_120%_at_80%_10%,rgba(255,255,255,0.06),transparent_60%)]"
   >
   </div>
 
-  <div class="mx-auto max-w-3xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-24">
-    <p class="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-sky-600 dark:text-sky-400">
-      Staff Software Engineer
-    </p>
-    <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-6xl">
-      Ashkan Sirous
-    </h1>
-    <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 sm:text-xl dark:text-slate-300">
-      I build and lead the design of distributed, well-tested backend systems — and the
-      infrastructure that makes enterprise AI safe to ship. Seventeen years across
-      <span class="font-medium text-slate-900 dark:text-slate-100">C#/.NET, Azure, and Kubernetes</span>,
-      most recently building LLM evaluation and observability platforms.
-    </p>
+  <div
+    class="mx-auto flex max-w-5xl flex-col items-start gap-12 px-6 py-20 sm:py-24 md:flex-row md:items-center"
+  >
+    <div class="min-w-0 flex-1">
+      <p class="font-mono text-[13px] uppercase tracking-[0.22em] text-clay">
+        Staff Software Engineer
+      </p>
+      <h1
+        class="mt-5 font-display text-5xl font-bold leading-[1.02] tracking-tight text-white sm:text-6xl"
+      >
+        Ashkan Sirous
+      </h1>
+      <p class="mt-5 max-w-2xl text-lg leading-relaxed text-band-sub">
+        I build and lead the design of distributed, well-tested backend systems — and the
+        infrastructure that makes enterprise AI safe to ship. Seventeen years across
+        <span class="text-white">C#/.NET, Azure, and Kubernetes</span>, most recently building
+        LLM evaluation and observability platforms.
+      </p>
 
-    <div class="mt-10 flex flex-wrap items-center gap-3">
-      <a
-        href="#contact"
-        class="inline-flex items-center rounded-lg bg-sky-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-500"
-      >
-        Get in touch
-      </a>
-      <a
-        href="https://github.com/ashkansirous"
-        class="inline-flex items-center rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-900"
-      >
-        View GitHub
-      </a>
+      <div class="mt-9 flex flex-wrap items-center gap-3">
+        <a
+          href="#contact"
+          class="inline-flex items-center rounded-lg bg-clay px-5 py-2.5 text-sm font-medium text-white transition hover:bg-clay-deep"
+        >
+          Get in touch
+        </a>
+        <a
+          href="https://github.com/ashkansirous"
+          class="inline-flex items-center rounded-lg border border-white/25 px-5 py-2.5 text-sm font-medium text-band-sub transition hover:border-white/50 hover:text-white"
+        >
+          View GitHub
+        </a>
+      </div>
+
+      <div class="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs text-band-sub">
+        {
+          socials.map((s) => (
+            <a href={s.href} class="transition hover:text-clay">
+              {s.label}
+            </a>
+          ))
+        }
+      </div>
     </div>
 
-    <div class="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-500 dark:text-slate-400">
-      {
-        socials.map((s) => (
-          <a href={s.href} class="transition hover:text-sky-600 dark:hover:text-sky-400">
-            {s.label}
-          </a>
-        ))
-      }
+    <div class="relative shrink-0">
+      <div
+        aria-hidden="true"
+        class="absolute -inset-2 rounded-full border border-clay opacity-50"
+      >
+      </div>
+      <img
+        src="/ashkan.jpg"
+        alt="Ashkan Sirous"
+        width="172"
+        height="172"
+        class="size-40 rounded-full object-cover object-[50%_28%] shadow-2xl sm:size-44"
+      />
     </div>
   </div>
 </section>

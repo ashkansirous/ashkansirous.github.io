@@ -19,22 +19,24 @@ const skillGroups = [
 ];
 ---
 
-<section id="about" class="scroll-mt-20 border-t border-slate-200 dark:border-slate-800">
-  <div class="mx-auto max-w-3xl px-6 py-16 sm:py-20">
-    <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-sky-600 dark:text-sky-400">
-      About
+<section id="about" class="scroll-mt-16">
+  <div class="mx-auto max-w-5xl px-6 py-16 sm:py-20">
+    <p class="font-mono text-xs uppercase tracking-[0.22em] text-clay">01 — About</p>
+    <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight text-ink dark:text-night-text">
+      Who I am
     </h2>
+    <div class="mt-5 h-[3px] w-14 rounded-full bg-clay"></div>
 
-    <div class="mt-6 space-y-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+    <div class="mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-muted dark:text-night-muted">
       <p>
         I'm a product-minded Staff Software Engineer with 17 years of experience, working
-        primarily in <span class="font-medium text-slate-900 dark:text-slate-100">C#/.NET on Azure</span>.
+        primarily in <span class="font-medium text-ink dark:text-night-text">C#/.NET on Azure</span>.
         My core is distributed systems, microservices, and domain-driven design — building
         services that are well-tested, maintainable, and operationally owned end to end.
       </p>
       <p>
         Most recently I've focused on enterprise AI infrastructure: declarative
-        <span class="font-medium text-slate-900 dark:text-slate-100">LLM evaluation frameworks</span>
+        <span class="font-medium text-ink dark:text-night-text">LLM evaluation frameworks</span>
         for safe model-swapping, and observability over full LLM interactions — the backbone
         of a triage → evaluation → fix loop used across multiple AI-agent teams. I hold an
         MSc in IT with an NLP focus, and I use Claude Code and GitHub Copilot daily.
@@ -50,12 +52,12 @@ const skillGroups = [
       {
         skillGroups.map((group) => (
           <div>
-            <h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100">
+            <h3 class="font-display text-sm font-medium uppercase tracking-wider text-faint">
               {group.title}
             </h3>
-            <ul class="mt-3 flex flex-wrap gap-2">
+            <ul class="mt-4 flex flex-wrap gap-2">
               {group.items.map((item) => (
-                <li class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
+                <li class="rounded-full border border-line bg-card px-3 py-1 font-mono text-xs text-muted dark:border-night-line dark:bg-night-surface dark:text-night-muted">
                   {item}
                 </li>
               ))}

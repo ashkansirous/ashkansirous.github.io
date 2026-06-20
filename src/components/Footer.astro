@@ -8,27 +8,32 @@ const links = [
 ];
 ---
 
-<footer id="contact" class="scroll-mt-20 border-t border-slate-200 dark:border-slate-800">
-  <div class="mx-auto max-w-3xl px-6 py-16 sm:py-20">
-    <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-sky-600 dark:text-sky-400">
-      Contact
+<footer id="contact" class="scroll-mt-16 border-t border-line dark:border-night-line">
+  <div class="mx-auto max-w-5xl px-6 py-16 sm:py-20">
+    <p class="font-mono text-xs uppercase tracking-[0.22em] text-clay">02 — Contact</p>
+    <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight text-ink dark:text-night-text">
+      Get in touch
     </h2>
-    <p class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+    <div class="mt-5 h-[3px] w-14 rounded-full bg-clay"></div>
+
+    <p class="mt-8 max-w-2xl text-lg leading-relaxed text-muted dark:text-night-muted">
       Open to interesting conversations. The fastest way to reach me is email.
     </p>
     <a
       href="mailto:ashkan.sirous@gmail.com"
-      class="mt-6 inline-flex items-center rounded-lg bg-sky-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-500"
+      class="mt-6 inline-flex items-center rounded-lg bg-clay px-5 py-2.5 text-sm font-medium text-white transition hover:bg-clay-deep"
     >
       ashkan.sirous@gmail.com
     </a>
 
-    <div class="mt-12 flex flex-col items-start justify-between gap-4 border-t border-slate-200 pt-8 text-sm text-slate-500 sm:flex-row sm:items-center dark:border-slate-800 dark:text-slate-400">
+    <div
+      class="mt-14 flex flex-col items-start justify-between gap-4 border-t border-line pt-8 font-mono text-xs text-faint sm:flex-row sm:items-center dark:border-night-line dark:text-night-faint"
+    >
       <p>© {year} Ashkan Sirous</p>
       <div class="flex flex-wrap gap-x-5 gap-y-2">
         {
           links.map((link) => (
-            <a href={link.href} class="transition hover:text-sky-600 dark:hover:text-sky-400">
+            <a href={link.href} class="transition hover:text-clay">
               {link.label}
             </a>
           ))

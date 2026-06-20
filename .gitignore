@@ -19,6 +19,9 @@ pnpm-debug.log*
 
 # private / sensitive — never commit to this public repo
 Ashkan_Sirous_Master_Context.md
+# planning / strategy docs kept local-only
+plan.md
+scope.md
 
 # OS noise
 .DS_Store

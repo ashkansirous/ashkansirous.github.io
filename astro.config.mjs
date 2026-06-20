@@ -5,8 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  // User-pages site served at the apex — no `base` needed (that's only for project pages).
-  site: 'https://ashkansirous.github.io',
+  // Custom domain (canonical). `sirous.uk` 301-redirects here via Cloudflare.
+  site: 'https://ashkan.sirous.uk',
   output: 'static',
   vite: {
     plugins: [tailwindcss()]

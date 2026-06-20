@@ -19,9 +19,13 @@ npm run preview  # preview the production build locally
 
 Pushes to `main` trigger `.github/workflows/deploy.yml`, which builds with the official
 `withastro/action` and publishes to GitHub Pages. The live site is
-[ashkansirous.github.io](https://ashkansirous.github.io).
+[ashkan.sirous.uk](https://ashkan.sirous.uk) (custom domain; `sirous.uk` 301-redirects to it
+via Cloudflare). The GitHub Pages URL `ashkansirous.github.io` also resolves.
 
-> One-time GitHub setup: repo **Settings → Pages → Build and deployment → Source = GitHub Actions**.
+> One-time GitHub setup: repo **Settings → Pages → Build and deployment → Source = GitHub Actions**,
+> custom domain `ashkan.sirous.uk` (in `public/CNAME`), **Enforce HTTPS** on.
+> Cloudflare: keep `ashkan.sirous.uk` **DNS-only** (grey cloud) so GitHub can issue the cert;
+> redirect `sirous.uk` → `https://ashkan.sirous.uk`.
 
 ## Project structure
 

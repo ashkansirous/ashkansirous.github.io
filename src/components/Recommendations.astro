@@ -1,32 +1,37 @@
 ---
-// Lead pull-quote + a compact strip. Texts are paraphrased from real LinkedIn
-// recommendations — swap in verbatim quotes when available.
+// Lead pull-quote + a compact strip. Verbatim from LinkedIn recommendations.
 const lead = {
   quote:
-    'You can count on him during incidents — calm and sharp, with deep performance, scalability and database expertise.',
+    'During incidents, he was someone you could genuinely count on: calm, sharp, and focused on solving the problem in the right way. His expertise in performance, scalability, and monitoring of complex systems, as well as his deep database knowledge repeatedly helped resolve difficult issues and close gaps in situations where others were stuck.',
   name: 'Dan Antal',
-  title: 'Staff Engineer · Templafy',
+  title: 'Staff Engineer · ~7 years at Templafy',
   initials: 'DA',
 };
 
 const strip = [
   {
     name: 'René Gundersen',
-    title: 'CTO (formerly Templafy)',
-    theme: 'Moves fluidly between high-level architecture and low-level implementation; a key contributor to the distributed architecture.',
+    title: 'CTO · managed Ashkan at Templafy',
+    theme: 'He has a rare ability to move effortlessly between high-level architecture and low-level implementation, quickly understanding how components fit together and identifying the right trade-offs. This made him a key contributor to our distributed architecture, where his impact was both significant and lasting.',
     initials: 'RG',
   },
   {
     name: 'Flemming Humlum Søgaard',
     title: 'Product Manager · Templafy',
-    theme: 'Bridges product and engineering with drawings that clarify solutions and constraints; mentors engineers into confident problem-solvers.',
+    theme: 'In refinements he was known for his drawings that would clarify the solutions we were refining and the constraints of the software… It was the same Ashkan I saw mentor and develop engineers, and turn each one of them into confident problem solvers.',
     initials: 'FH',
   },
   {
     name: 'Silvia Belloni',
     title: 'InfoSec & IT Governance Lead · Templafy',
-    theme: 'Brings structure to complex areas like AI evaluation and data flows; turns risk into scalable, production-ready systems.',
+    theme: 'What stood out was his ability to bring structure to complex areas like AI evaluation and data flows, translating risk considerations into scalable, production-ready systems.',
     initials: 'SB',
+  },
+  {
+    name: 'Hossein Margani',
+    title: 'DevOps Engineer · WTW',
+    theme: 'Ashkan has a rare gift for bridging the gap between high-level business strategy and low-level system design. He consistently acts as a force multiplier for his organization. Any top-tier engineering team would be fortunate to have his vision and technical depth.',
+    initials: 'HM',
   },
 ];
 ---
@@ -42,7 +47,7 @@ const strip = [
     <figure
       class="mt-10 rounded-xl border border-line border-l-[3px] border-l-clay bg-card p-8 dark:border-night-line dark:border-l-clay dark:bg-night-surface"
     >
-      <div class="font-display text-5xl leading-none text-clay">“</div>
+      <div class="font-display text-5xl leading-none text-clay">"</div>
       <blockquote class="mt-2 max-w-3xl font-display text-xl font-medium leading-relaxed text-ink dark:text-night-text">
         {lead.quote}
       </blockquote>
@@ -57,7 +62,7 @@ const strip = [
       </figcaption>
     </figure>
 
-    <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3">
+    <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
       {
         strip.map((r) => (
           <div class="rounded-xl border border-line bg-card p-6 dark:border-night-line dark:bg-night-surface">

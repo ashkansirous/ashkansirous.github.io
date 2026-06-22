@@ -21,6 +21,8 @@ pnpm-debug.log*
 Ashkan_Sirous_Master_Context.md
 # photo source lives at public/ashkan.jpg; keep the root copy out of git
 Ashkan.jpg
+# CV source lives at public/cv/ashkan-sirous-cv.pdf; keep the root copy out of git
+Ashkan_Sirous_CV.pdf
 # planning / strategy docs kept local-only
 plan.md
 scope.md

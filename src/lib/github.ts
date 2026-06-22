@@ -49,6 +49,15 @@ const FEATURED: Array<Pick<FeaturedProject, 'name' | 'status' | 'description' | 
     url: `https://github.com/${OWNER}/AlphaAgent`,
     pushedAt: null,
   },
+  {
+    name: 'ReadTheStupidText',
+    status: 'Active',
+    description: 'A tool for extracting and parsing text from images and documents.',
+    language: 'TypeScript',
+    stars: 0,
+    url: `https://github.com/${OWNER}/ReadTheStupidText`,
+    pushedAt: null,
+  },
 ];
 
 async function fetchRepo(name: string): Promise<LiveRepo | null> {

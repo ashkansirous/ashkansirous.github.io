@@ -9,6 +9,8 @@ export default defineConfig({
   // Custom domain (canonical). `sirous.uk` 301-redirects here via Cloudflare.
   site: 'https://ashkan.sirous.uk',
   output: 'static',
+  // Single-page site: inline the small CSS so it's not a render-blocking request.
+  build: { inlineStylesheets: 'always' },
   integrations: [sitemap()],
   // Self-hosted, optimized fonts (no render-blocking Google Fonts request).
   fonts: [

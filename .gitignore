@@ -17,12 +17,13 @@ pnpm-debug.log*
 .env
 .env.production
 
-# private / sensitive — never commit to this public repo
-Ashkan_Sirous_Master_Context.md
+# private / sensitive — never commit to this public repo (root-anchored so they
+# don't accidentally match files like src/assets/ashkan.jpg)
+/Ashkan_Sirous_Master_Context.md
 # photo source lives at public/ashkan.jpg; keep the root copy out of git
-Ashkan.jpg
+/Ashkan.jpg
 # CV source lives at public/cv/ashkan-sirous-cv.pdf; keep the root copy out of git
-Ashkan_Sirous_CV.pdf
+/Ashkan_Sirous_CV.pdf
 # planning / strategy docs kept local-only
 plan.md
 scope.md

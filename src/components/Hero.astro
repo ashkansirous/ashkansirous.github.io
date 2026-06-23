@@ -1,4 +1,7 @@
 ---
+import { Picture } from 'astro:assets';
+import heroPhoto from '../assets/ashkan.jpg';
+
 const socials = [
   { href: 'https://github.com/ashkansirous', label: 'GitHub' },
   { href: 'https://linkedin.com/in/ashkansirous', label: 'LinkedIn' },
@@ -65,13 +68,13 @@ const socials = [
         class="absolute -inset-2 rounded-full border border-clay opacity-50"
       >
       </div>
-      <img
-        src="/ashkan.jpg"
+      <Picture
+        src={heroPhoto}
+        formats={['avif', 'webp']}
+        width={352}
+        height={352}
+        priority
         alt="Ashkan Sirous"
-        width="172"
-        height="172"
-        fetchpriority="high"
-        decoding="async"
         class="size-40 rounded-full object-cover object-[50%_28%] shadow-2xl sm:size-44"
       />
     </div>

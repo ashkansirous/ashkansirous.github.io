@@ -36,3 +36,6 @@ Thumbs.db
 .idea/
 *.swp
 *~
+
+# Playwright MCP output (QA screenshots)
+.playwright-mcp/

@@ -18,6 +18,19 @@ const roles = [
     org: 'Shatel',
     note: 'Scaled the platform from 500k to 900k+ users; proposed simpler, often better implementations.',
   },
+  {
+    dates: 'Feb 2010 – Jul 2012',
+    role: 'Senior Software Engineer',
+    org: 'NHTC',
+    note: 'Built in-house and client-facing software, and coached junior developers. .NET Framework, SQL Server, SharePoint.',
+  },
+];
+
+const credentials = [
+  'EPiServer Certified Developer · 2018',
+  'EPiServer “Best Implementation of the Year”',
+  'MCSD · 2019',
+  'MCAD · 2021',
 ];
 ---
 
@@ -58,5 +71,20 @@ const roles = [
     >
       Download CV (PDF) ↓
     </a>
+
+    <div class="mt-14">
+      <h3 class="font-display text-sm font-medium uppercase tracking-wider text-faint">
+        Credentials &amp; honours
+      </h3>
+      <ul class="mt-4 flex flex-wrap gap-2">
+        {
+          credentials.map((c) => (
+            <li class="rounded-full border border-line bg-card px-3.5 py-1.5 font-mono text-xs text-muted dark:border-night-line dark:bg-night-surface dark:text-night-muted">
+              {c}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </div>
 </section>

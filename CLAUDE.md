@@ -25,6 +25,22 @@ work. Static site built with Astro and deployed to GitHub Pages at `ashkansirous
   `/design-sync`. Keep the local component library in sync incrementally — never wholesale.
 - Content must be accurate and verifiable. Don't invent metrics, dates, or scope.
 
+## Shipped products vs. Open source
+
+Two distinct sections cover finished work, and they must not be conflated:
+
+- **`ShippedProducts.astro`** ("Things I've shipped") — hand-curated, real-world
+  products regardless of source visibility. Covers apps with a private repo
+  (e.g. Lets-Call-Mom) that have no public GitHub metadata to pull. Update this
+  file by hand when a product's capabilities change materially.
+- **`Projects.astro`** ("Open source" / "Public projects") — strictly public,
+  owned GitHub repos, fetched live at build time. Never add a private-repo entry
+  here — its "View repo →" link would 404 for visitors, and the "pulled from
+  GitHub" copy would be false for it.
+
+A product that is both shipped *and* open source (e.g. ReadTheStupidText) may
+appear in both sections — that overlap is fine.
+
 ## Featured-projects selection rubric
 
 The "public projects" section is built from GitHub. When (re)building it, pull all

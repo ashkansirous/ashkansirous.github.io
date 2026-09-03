@@ -52,8 +52,9 @@ const FEATURED: Array<Pick<FeaturedProject, 'name' | 'status' | 'description' | 
   {
     name: 'ReadTheStupidText',
     status: 'Active',
-    description: 'A tool for extracting and parsing text from images and documents.',
-    language: 'TypeScript',
+    description:
+      'A lightweight Windows tray app that reads selected, copied, or uploaded (.txt/.pdf) text aloud in natural offline neural voices, at your choice of speed.',
+    language: 'C#',
     stars: 0,
     url: `https://github.com/${OWNER}/ReadTheStupidText`,
     pushedAt: null,

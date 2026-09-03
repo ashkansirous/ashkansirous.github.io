@@ -43,6 +43,8 @@
   --color-status-active-bg: #dcfce7;
   --color-status-wip-fg: #b45309;
   --color-status-wip-bg: #fef3c7;
+  --color-status-private-fg: #475569;
+  --color-status-private-bg: #e2e8f0;
 }
 
 @layer base {

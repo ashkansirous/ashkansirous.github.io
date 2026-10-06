@@ -1,7 +1,7 @@
 # ashkansirous.github.io
 
-Personal website for Ashkan Sirous — Staff Software Engineer (C#/.NET, Azure, distributed
-systems, enterprise AI infrastructure). A professional, evergreen presence optimised for
+Personal website for Ashkan Sirous — Lead Product Engineer at Stream (C#/.NET, Azure, distributed
+systems, enterprise AI infrastructure; now Python on AWS). A professional, evergreen presence optimised for
 future Staff/Principal opportunities.
 
 Built with **Astro + TypeScript + Tailwind CSS v4**, deployed to **GitHub Pages**.

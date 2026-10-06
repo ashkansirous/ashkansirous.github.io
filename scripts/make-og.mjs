@@ -31,7 +31,7 @@ const background = Buffer.from(`
   <rect width="${W}" height="${H}" fill="url(#glow)" />
 
   <text x="80" y="170" font-family="${mono}" font-size="24" letter-spacing="5"
-        fill="${CLAY}" font-weight="500">STAFF SOFTWARE ENGINEER</text>
+        fill="${CLAY}" font-weight="500">LEAD PRODUCT ENGINEER</text>
 
   <text x="78" y="280" font-family="${display}" font-size="92" font-weight="700"
         fill="#ffffff">Ashkan Sirous</text>
@@ -39,7 +39,7 @@ const background = Buffer.from(`
   <rect x="82" y="312" width="64" height="4" rx="2" fill="${CLAY}" />
 
   <text x="80" y="372" font-family="${display}" font-size="34" font-weight="500"
-        fill="${BAND_SUB}">C#/.NET · Azure · Kubernetes · Enterprise AI</text>
+        fill="${BAND_SUB}">C#/.NET · Python · Azure · AWS · AI</text>
 
   <text x="80" y="560" font-family="${mono}" font-size="26" letter-spacing="1"
         fill="${BAND_SUB}">ashkan.sirous.uk</text>

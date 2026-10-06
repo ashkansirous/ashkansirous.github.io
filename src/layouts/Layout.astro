@@ -1,6 +1,7 @@
 ---
 import { Font } from 'astro:assets';
 import '../styles/global.css';
+import { CONTACT_MAILTO, EMPLOYER, JOB_TITLE } from '../lib/site';
 
 interface Props {
   title?: string;
@@ -8,8 +9,8 @@ interface Props {
 }
 
 const {
-  title = 'Ashkan Sirous — Staff Software Engineer',
-  description = 'Staff Software Engineer specialising in C#/.NET, Azure, distributed systems, and enterprise AI infrastructure.',
+  title = `Ashkan Sirous — ${JOB_TITLE}`,
+  description = `${JOB_TITLE} at Stream — distributed systems and enterprise AI infrastructure in C#/.NET and Azure, now Python on AWS.`,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
@@ -24,8 +25,9 @@ const personSchema = {
   name: 'Ashkan Sirous',
   url: Astro.site?.toString(),
   image: photo,
-  email: 'mailto:ashkan@sirous.uk',
-  jobTitle: 'Staff Software Engineer',
+  email: CONTACT_MAILTO,
+  jobTitle: JOB_TITLE,
+  worksFor: { '@type': 'Organization', name: EMPLOYER },
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'London',
@@ -77,7 +79,7 @@ const personSchema = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content="Ashkan Sirous — Staff Software Engineer" />
+    <meta property="og:image:alt" content={`Ashkan Sirous — ${JOB_TITLE}`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />

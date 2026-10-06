@@ -1,8 +1,10 @@
 ---
+import { CONTACT_EMAIL, CONTACT_MAILTO } from '../lib/site';
+
 const year = new Date().getFullYear();
 
 const links = [
-  { href: 'mailto:ashkan@sirous.uk', label: 'Email' },
+  { href: CONTACT_MAILTO, label: 'Email' },
   { href: 'https://github.com/ashkansirous', label: 'GitHub' },
   { href: 'https://linkedin.com/in/ashkansirous', label: 'LinkedIn' },
 ];
@@ -20,10 +22,10 @@ const links = [
       Open to interesting conversations. The fastest way to reach me is email.
     </p>
     <a
-      href="mailto:ashkan@sirous.uk"
+      href={CONTACT_MAILTO}
       class="mt-6 inline-flex items-center rounded-lg bg-clay px-5 py-2.5 text-sm font-medium text-white transition hover:bg-clay-deep"
     >
-      ashkan@sirous.uk
+      {CONTACT_EMAIL}
     </a>
 
     <div

@@ -1,5 +1,13 @@
 ---
+import { CV_URL, EMPLOYER } from '../lib/site';
+
 const roles = [
+  {
+    dates: 'Jul 2026 – Present',
+    role: 'Lead Product Engineer',
+    org: EMPLOYER,
+    note: 'Python, PostgreSQL, React, AWS, Grafana. Owned Stream’s #1 support driver (“where is my money?”: 12.4% of cases, 17.5% of escalations); measured each change’s impact and, in 4 weeks, cut weekly cases 44% (365 → 203) and escalations 34% (118 → 78).',
+  },
   {
     dates: 'Aug 2018 – Apr 2026',
     role: 'Staff Software Engineer · former Tech Lead',
@@ -66,7 +74,7 @@ const credentials = [
     </ol>
 
     <a
-      href="/cv/ashkan-sirous-cv.pdf"
+      href={CV_URL}
       class="inline-flex items-center rounded-lg border border-ink/20 px-5 py-2.5 text-sm font-medium text-ink transition hover:border-ink hover:bg-ink hover:text-white dark:border-night-line dark:text-night-text dark:hover:bg-night-surface"
     >
       Download CV (PDF) ↓

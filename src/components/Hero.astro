@@ -1,6 +1,7 @@
 ---
 import { Picture } from 'astro:assets';
 import heroPhoto from '../assets/ashkan.jpg';
+import { JOB_TITLE } from '../lib/site';
 
 const socials = [
   { href: 'https://github.com/ashkansirous', label: 'GitHub' },
@@ -24,7 +25,7 @@ const socials = [
       <p
         class="inline-flex rounded-full bg-clay/15 px-3 py-1 font-mono text-sm font-medium uppercase tracking-[0.2em] text-clay sm:text-base"
       >
-        Staff Software Engineer
+        {JOB_TITLE}
       </p>
       <h1
         class="mt-5 font-display text-5xl font-bold leading-[1.02] tracking-tight text-white sm:text-6xl"
@@ -33,9 +34,9 @@ const socials = [
       </h1>
       <p class="mt-5 max-w-2xl text-lg leading-relaxed text-band-sub">
         I build and lead the design of distributed, well-tested backend systems — and the
-        infrastructure that makes enterprise AI safe to ship. Over sixteen years across
-        <span class="text-white">C#/.NET, Azure, and Kubernetes</span>, most recently building
-        LLM evaluation and observability platforms.
+        infrastructure that makes enterprise AI safe to ship. Over sixteen years, mostly across
+        <span class="text-white">C#/.NET, Azure, and Kubernetes</span> — building LLM evaluation
+        and observability platforms at Templafy, and now leading data-led product engineering at Stream.
       </p>
 
       <div class="mt-9 flex flex-wrap items-center gap-3">

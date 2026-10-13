@@ -1,7 +1,7 @@
 ---
 import { Font } from 'astro:assets';
 import '../styles/global.css';
-import { CONTACT_MAILTO, EMPLOYER, JOB_TITLE } from '../lib/site';
+import { CONTACT_MAILTO, JOB_TITLE } from '../lib/site';
 
 interface Props {
   title?: string;
@@ -10,7 +10,7 @@ interface Props {
 
 const {
   title = `Ashkan Sirous — ${JOB_TITLE}`,
-  description = `${JOB_TITLE} at Stream — distributed systems and enterprise AI infrastructure in C#/.NET and Azure, now Python on AWS.`,
+  description = `${JOB_TITLE} — distributed systems and enterprise AI infrastructure in C#/.NET and Azure, plus Python on AWS, and independent apps shipped end to end.`,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
@@ -27,7 +27,6 @@ const personSchema = {
   image: photo,
   email: CONTACT_MAILTO,
   jobTitle: JOB_TITLE,
-  worksFor: { '@type': 'Organization', name: EMPLOYER },
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'London',

@@ -53,7 +53,7 @@ const FEATURED: Array<Pick<FeaturedProject, 'name' | 'status' | 'description' | 
     name: 'ReadTheStupidText',
     status: 'Active',
     description:
-      'A lightweight Windows tray app that reads selected, copied, or uploaded (.txt/.pdf) text aloud in natural offline neural voices, at your choice of speed.',
+      'A lightweight Windows tray app that reads selected, copied, or uploaded (.txt/.pdf/.docx) text aloud in natural offline neural voices, at your choice of speed, with an Android app in testing.',
     language: 'C#',
     stars: 0,
     url: `https://github.com/${OWNER}/ReadTheStupidText`,

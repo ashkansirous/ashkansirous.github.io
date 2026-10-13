@@ -58,6 +58,7 @@ The "public projects" section is built from GitHub. When (re)building it, pull a
 ```
 src/
   layouts/   shared page shells (Layout.astro)
+  lib/       shared data: site.ts (title, employer, email, CV URL — single source), github.ts
   pages/     routes (index.astro)
   styles/    global.css (Tailwind entry)
 public/      static assets served as-is

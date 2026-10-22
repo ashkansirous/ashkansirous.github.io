@@ -4,6 +4,7 @@ import type { ImageMetadata } from 'astro';
 import rtstShot from '../assets/products/read-the-stupid-text.png';
 import lcmShot from '../assets/products/lets-call-mom.png';
 import dinoShot from '../assets/products/dino-reader.png';
+import bookShot from '../assets/products/print-the-damn-book.png';
 
 /**
  * Shipped, real-world products — distinct from the "Open source" section below,
@@ -23,7 +24,7 @@ interface ShippedProduct {
   cta: string;
   screenshot: ImageMetadata;
   screenshotAlt: string;
-  shotWidth: string;
+  shotClass: string;
 }
 
 const products: ShippedProduct[] = [
@@ -41,7 +42,7 @@ const products: ShippedProduct[] = [
     screenshot: rtstShot,
     screenshotAlt:
       'The Read The Stupid Text tray control panel on Windows, showing the current read, playback controls, speed, voice and language pickers',
-    shotWidth: 'w-[72%]',
+    shotClass: 'h-full w-[72%] object-cover object-top',
   },
   {
     name: 'Lets Call Mom',
@@ -57,7 +58,7 @@ const products: ShippedProduct[] = [
     screenshot: lcmShot,
     screenshotAlt:
       'The Lets Call Mom Windows desktop app showing a group chat with messages, an emoji reaction and a shared photo',
-    shotWidth: 'w-[62%]',
+    shotClass: 'h-full w-[62%] object-cover object-top',
   },
   {
     name: 'Dino Reader',
@@ -73,7 +74,23 @@ const products: ShippedProduct[] = [
     screenshot: dinoShot,
     screenshotAlt:
       'The Dino Reader reading screen showing an illustrated storybook page with the spoken sentence highlighted and playback buttons',
-    shotWidth: 'w-[62%]',
+    shotClass: 'h-full w-[62%] object-cover object-top',
+  },
+  {
+    name: 'Print the Damn Book',
+    tagline: 'Testing',
+    description:
+      'Give it a folder of page images named Cover, 1, 2 … Back cover and it arranges them as a saddle-stitch booklet, two pages per landscape sheet, double-sided. It shows you every sheet front and back, then sends the whole thing to your duplex printer in one job, so a folded stack reads in order.',
+    tags: ['C#', '.NET 10', 'WPF', 'System.Printing', 'xUnit'],
+    platforms: ['Windows'],
+    url: 'https://github.com/ashkansirous/print-the-damn-book',
+    displayUrl: 'github.com/ashkansirous/print-the-damn-book',
+    detailsUrl: 'https://sirous.uk/print-the-damn-book/',
+    cta: 'View source',
+    screenshot: bookShot,
+    screenshotAlt:
+      'The Print the Damn Book Windows app showing a loaded twelve-page picture book with its sheet previews and print controls',
+    shotClass: 'h-auto w-[88%] object-contain object-top',
   },
 ];
 
@@ -93,10 +110,10 @@ const tagStyles: Record<ShippedProduct['tagline'], string> = {
     <div class="mt-5 h-[3px] w-14 rounded-full bg-clay"></div>
     <p class="mt-6 max-w-2xl text-muted dark:text-night-muted">
       Independent products, built and maintained end to end — design, engineering, release pipelines and ops.
-      Two are live (one of them invite-only), one is in testing; each has its own page on sirous.uk.
+      Two are live (one of them invite-only), two are in testing; each has its own page on sirous.uk.
     </p>
 
-    <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
       {
         products.map((p) => (
           <div class="group flex flex-col overflow-hidden rounded-xl border border-line bg-card transition hover:-translate-y-0.5 hover:border-clay-ring hover:shadow-lg dark:border-night-line dark:bg-night-surface">
@@ -105,11 +122,11 @@ const tagStyles: Record<ShippedProduct['tagline'], string> = {
                 src={p.screenshot}
                 alt={p.screenshotAlt}
                 formats={['avif', 'webp']}
-                widths={[320, 480]}
-                sizes="(max-width: 640px) 60vw, 240px"
+                widths={[480, 800]}
+                sizes="(max-width: 640px) 90vw, 440px"
                 loading="lazy"
                 decoding="async"
-                class={`mx-auto mt-6 h-full ${p.shotWidth} rounded-t-xl object-cover object-top shadow-xl shadow-ink/30 dark:shadow-black/50 ring-1 ring-ink/10 transition group-hover:-translate-y-1 dark:ring-white/10`}
+                class={`mx-auto mt-6 ${p.shotClass} rounded-t-xl shadow-xl shadow-ink/30 dark:shadow-black/50 ring-1 ring-ink/10 transition group-hover:-translate-y-1 dark:ring-white/10`}
               />
             </div>
             <div class="flex flex-1 flex-col p-7">

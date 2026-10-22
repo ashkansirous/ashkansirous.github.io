@@ -1,4 +1,10 @@
 ---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import rtstShot from '../assets/products/read-the-stupid-text.png';
+import lcmShot from '../assets/products/lets-call-mom.png';
+import dinoShot from '../assets/products/dino-reader.png';
+
 /**
  * Shipped, real-world products — distinct from the "Open source" section below,
  * which is scoped to public GitHub repos. These are curated by hand (not pulled
@@ -7,39 +13,73 @@
  */
 interface ShippedProduct {
   name: string;
-  tagline: 'Live' | 'Private';
+  tagline: 'Live' | 'Testing' | 'Private';
   description: string;
   tags: string[];
+  platforms: string[];
   url: string;
   displayUrl: string;
+  detailsUrl: string;
   cta: string;
+  screenshot: ImageMetadata;
+  screenshotAlt: string;
+  shotWidth: string;
 }
 
 const products: ShippedProduct[] = [
   {
-    name: 'Read the Stupid Text',
+    name: 'Read The Stupid Text',
     tagline: 'Live',
     description:
-      'Reads selected, copied, or uploaded (.txt/.pdf/.docx) text aloud in natural offline neural voices, at any speed from 0.5x-2x. A Windows tray app on the Microsoft Store, plus an Android app (in testing) that reads text straight from the camera.',
-    tags: ['WinUI 3', '.NET MAUI', 'Neural TTS', 'Microsoft Store', 'Android'],
+      'Select or copy text, press Ctrl+Win+R, or open a file, and it reads it aloud in natural on-device neural voices at any speed from 0.5x to 2x, in nine languages, with on-device translation and camera reading on phones. A Windows tray app on the Microsoft Store, with Android and iPhone apps in testing.',
+    tags: ['.NET 10', 'WinUI 3', '.NET MAUI', 'sherpa-onnx', 'On-device OCR', 'Microsoft Store'],
+    platforms: ['Windows', 'Android', 'iPhone'],
     url: 'https://readthestupidtext.sirous.uk/',
     displayUrl: 'readthestupidtext.sirous.uk',
+    detailsUrl: 'https://sirous.uk/read-the-stupid-text/',
     cta: 'Visit site',
+    screenshot: rtstShot,
+    screenshotAlt:
+      'The Read The Stupid Text tray control panel on Windows, showing the current read, playback controls, speed, voice and language pickers',
+    shotWidth: 'w-[72%]',
   },
   {
     name: 'Lets Call Mom',
     tagline: 'Private',
     description:
-      'A private video calling app built so a call between the UK and a heavily filtered connection in Iran never drops: media forced over TLS/443, direct mesh for two and Cloudflare’s SFU for three or more. Web, Android and Linux apps (iPhone in TestFlight) that ring like a phone, with messaging and live Farsi⇄English subtitles. Invite-only, built for one family.',
-    tags: ['Cloudflare Workers', 'Durable Objects', 'WebRTC', 'Workers AI', 'React', 'Capacitor', 'Electron'],
+      'Video calls between the UK and a filtered connection in Iran that never drop: media forced over TLS/443, mesh for two, Cloudflare’s Realtime SFU for more. Two AI features: live Farsi ⇄ English subtitles (Workers AI: Whisper + Gemma) and “Frame everyone”, on-device face cropping with MediaPipe that gives each person on one camera their own tile. Apps for web, Android, iPhone, Windows and Linux that ring like a phone, with messaging. Invite-only, built for one family.',
+    tags: ['Cloudflare Workers', 'Durable Objects', 'WebRTC', 'Realtime SFU', 'Workers AI', 'MediaPipe', 'React', 'Capacitor', 'Electron'],
+    platforms: ['Web', 'Android', 'iPhone', 'Windows', 'Linux'],
     url: 'https://talk.sirous.uk/',
     displayUrl: 'talk.sirous.uk',
+    detailsUrl: 'https://sirous.uk/lets-call-mom/',
     cta: 'Invite-only',
+    screenshot: lcmShot,
+    screenshotAlt:
+      'The Lets Call Mom Windows desktop app showing a group chat with messages, an emoji reaction and a shared photo',
+    shotWidth: 'w-[62%]',
+  },
+  {
+    name: 'Dino Reader',
+    tagline: 'Testing',
+    description:
+      'A storybook reader for kids aged 3 to 8 where every character has their own voice: scan a page, open a PDF or type a story, and it works out who is speaking and highlights each sentence across the real page. No accounts, no ads, no tracking; stories and photos never leave the device.',
+    tags: ['.NET MAUI', 'C#', 'Neural TTS', 'On-device OCR'],
+    platforms: ['Android', 'iPhone', 'Windows'],
+    url: 'https://dinoreader.sirous.uk/',
+    displayUrl: 'dinoreader.sirous.uk',
+    detailsUrl: 'https://sirous.uk/dino-reader/',
+    cta: 'Visit site',
+    screenshot: dinoShot,
+    screenshotAlt:
+      'The Dino Reader reading screen showing an illustrated storybook page with the spoken sentence highlighted and playback buttons',
+    shotWidth: 'w-[62%]',
   },
 ];
 
 const tagStyles: Record<ShippedProduct['tagline'], string> = {
   Live: 'text-status-active-fg bg-status-active-bg',
+  Testing: 'text-status-wip-fg bg-status-wip-bg',
   Private: 'text-status-private-fg bg-status-private-bg',
 };
 ---
@@ -52,36 +92,50 @@ const tagStyles: Record<ShippedProduct['tagline'], string> = {
     </h2>
     <div class="mt-5 h-[3px] w-14 rounded-full bg-clay"></div>
     <p class="mt-6 max-w-2xl text-muted dark:text-night-muted">
-      Independent products, built and maintained end to end — design, engineering, and ops.
+      Independent products, built and maintained end to end — design, engineering, release pipelines and ops.
+      Two are live (one of them invite-only), one is in testing; each has its own page on sirous.uk.
     </p>
 
-    <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+    <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
         products.map((p) => (
-          <a
-            href={p.url}
-            class="group flex flex-col rounded-xl border border-line bg-card p-7 transition hover:-translate-y-0.5 hover:border-clay-ring hover:shadow-lg dark:border-night-line dark:bg-night-surface"
-          >
-            <div class="flex items-center justify-between">
-              <span class="font-mono text-xs text-faint dark:text-night-faint">{p.displayUrl}</span>
-              <span class={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-mono text-[11px] uppercase tracking-wide ${tagStyles[p.tagline]}`}>
-                <span class="size-1.5 rounded-full bg-current" />
-                {p.tagline}
-              </span>
+          <div class="group flex flex-col overflow-hidden rounded-xl border border-line bg-card transition hover:-translate-y-0.5 hover:border-clay-ring hover:shadow-lg dark:border-night-line dark:bg-night-surface">
+            <div class="aspect-[4/3] overflow-hidden rounded-t-xl bg-paper bg-[radial-gradient(120%_120%_at_50%_0%,color-mix(in_oklab,var(--color-ink)_10%,transparent),transparent_70%)] dark:bg-night dark:bg-[radial-gradient(120%_120%_at_50%_0%,color-mix(in_oklab,white_8%,transparent),transparent_70%)]">
+              <Picture
+                src={p.screenshot}
+                alt={p.screenshotAlt}
+                formats={['avif', 'webp']}
+                widths={[320, 480]}
+                sizes="(max-width: 640px) 60vw, 240px"
+                loading="lazy"
+                decoding="async"
+                class={`mx-auto mt-6 h-full ${p.shotWidth} rounded-t-xl object-cover object-top shadow-xl shadow-ink/30 dark:shadow-black/50 ring-1 ring-ink/10 transition group-hover:-translate-y-1 dark:ring-white/10`}
+              />
             </div>
-            <h3 class="mt-4 font-display text-xl font-semibold text-ink dark:text-night-text">
-              {p.name}
-            </h3>
-            <p class="mt-2 flex-1 leading-relaxed text-muted dark:text-night-muted">{p.description}</p>
-            <div class="mt-5 flex flex-wrap gap-2 font-mono text-xs">
-              {p.tags.map((tag) => (
-                <span class="rounded-full border border-line px-2.5 py-1 text-faint dark:border-night-line dark:text-night-faint">{tag}</span>
-              ))}
+            <div class="flex flex-1 flex-col p-7">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs text-faint dark:text-night-faint">{p.displayUrl}</span>
+                <span class={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-mono text-[11px] uppercase tracking-wide ${tagStyles[p.tagline]}`}>
+                  <span class="size-1.5 rounded-full bg-current" />
+                  {p.tagline}
+                </span>
+              </div>
+              <h3 class="mt-4 font-display text-xl font-semibold text-ink dark:text-night-text">
+                <a href={p.url} class="transition group-hover:text-clay focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay rounded">{p.name}</a>
+              </h3>
+              <p class="mt-1 font-mono text-xs text-faint dark:text-night-faint">{p.platforms.join(' · ')}</p>
+              <p class="mt-3 flex-1 leading-relaxed text-muted dark:text-night-muted">{p.description}</p>
+              <div class="mt-5 flex flex-wrap gap-2 font-mono text-xs">
+                {p.tags.map((tag) => (
+                  <span class="rounded-full border border-line px-2.5 py-1 text-faint dark:border-night-line dark:text-night-faint">{tag}</span>
+                ))}
+              </div>
+              <div class="mt-5 flex items-center justify-between gap-3 border-t border-line pt-4 font-mono text-xs dark:border-night-line">
+                <a href={p.detailsUrl} aria-label={`${p.name}: details on sirous.uk`} class="whitespace-nowrap text-muted transition hover:text-clay dark:text-night-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay rounded">Details on sirous.uk →</a>
+                <a href={p.url} aria-label={`${p.name}: ${p.cta}`} class="whitespace-nowrap font-medium text-clay focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay rounded">{p.cta} →</a>
+              </div>
             </div>
-            <div class="mt-5 flex items-center justify-end border-t border-line pt-4 font-mono text-xs text-clay dark:border-night-line">
-              <span class="font-medium">{p.cta} →</span>
-            </div>
-          </a>
+          </div>
         ))
       }
     </div>

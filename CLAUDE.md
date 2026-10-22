@@ -32,7 +32,9 @@ Two distinct sections cover finished work, and they must not be conflated:
 - **`ShippedProducts.astro`** ("Things I've shipped") — hand-curated, real-world
   products regardless of source visibility. Covers apps with a private repo
   (e.g. Lets-Call-Mom) that have no public GitHub metadata to pull. Update this
-  file by hand when a product's capabilities change materially.
+  file by hand when a product's capabilities change materially. Screenshots live in
+  `src/assets/products/<slug>.png` and are rendered through `astro:assets` (`Picture`),
+  never copied to `public/`; the "Details" link points at the product's page on `sirous.uk`.
 - **`Projects.astro`** ("Open source" / "Public projects") — strictly public,
   owned GitHub repos, fetched live at build time. Never add a private-repo entry
   here — its "View repo →" link would 404 for visitors, and the "pulled from

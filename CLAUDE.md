@@ -33,7 +33,8 @@ Two distinct sections cover finished work, and they must not be conflated:
   products regardless of source visibility. Covers apps with a private repo
   (e.g. Lets-Call-Mom) that have no public GitHub metadata to pull. Update this
   file by hand when a product's capabilities change materially. Screenshots live in
-  `src/assets/products/<slug>.png` and are rendered through `astro:assets` (`Picture`),
+  `src/assets/products/<slug>.png` or `.webp` and are rendered through `astro:assets` (`Picture`;
+  a product with `frame: false` is full-bleed artwork rather than a framed app shot),
   never copied to `public/`; the "Details" link points at the product's page on `sirous.uk`.
 - **`Projects.astro`** ("Open source" / "Public projects") — strictly public,
   owned GitHub repos, fetched live at build time. Never add a private-repo entry

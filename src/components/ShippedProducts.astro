@@ -4,7 +4,7 @@ import type { ImageMetadata } from 'astro';
 import rtstShot from '../assets/products/read-the-stupid-text.png';
 import lcmShot from '../assets/products/lets-call-mom.png';
 import dinoShot from '../assets/products/dino-reader.png';
-import bookShot from '../assets/products/print-the-damn-book.png';
+import bookShot from '../assets/products/print-the-damn-book.webp';
 
 /**
  * Shipped, real-world products — distinct from the "Open source" section below,
@@ -25,7 +25,12 @@ interface ShippedProduct {
   screenshot: ImageMetadata;
   screenshotAlt: string;
   shotClass: string;
+  /** Wrap the image in the shared shadow/ring frame; false for full-bleed artwork. */
+  frame: boolean;
 }
+
+const FRAME_CLASSES =
+  'mx-auto mt-6 rounded-t-xl shadow-xl shadow-ink/30 dark:shadow-black/50 ring-1 ring-ink/10 transition group-hover:-translate-y-1 dark:ring-white/10';
 
 const products: ShippedProduct[] = [
   {
@@ -43,6 +48,7 @@ const products: ShippedProduct[] = [
     screenshotAlt:
       'The Read The Stupid Text tray control panel on Windows, showing the current read, playback controls, speed, voice and language pickers',
     shotClass: 'h-full w-[72%] object-cover object-top',
+    frame: true,
   },
   {
     name: 'Lets Call Mom',
@@ -59,6 +65,7 @@ const products: ShippedProduct[] = [
     screenshotAlt:
       'The Lets Call Mom Windows desktop app showing a group chat with messages, an emoji reaction and a shared photo',
     shotClass: 'h-full w-[62%] object-cover object-top',
+    frame: true,
   },
   {
     name: 'Dino Reader',
@@ -75,22 +82,24 @@ const products: ShippedProduct[] = [
     screenshotAlt:
       'The Dino Reader reading screen showing an illustrated storybook page with the spoken sentence highlighted and playback buttons',
     shotClass: 'h-full w-[62%] object-cover object-top',
+    frame: true,
   },
   {
     name: 'Print the Damn Book',
     tagline: 'Testing',
     description:
-      'Give it a folder of page images named Cover, 1, 2 … Back cover and it arranges them as a saddle-stitch booklet, two pages per landscape sheet, double-sided. It shows you every sheet front and back, then sends the whole thing to your duplex printer in one job, so a folded stack reads in order.',
+      'Drop a folder of page images. Print the Damn Book works out what goes where on every sheet, then prints the booklet double-sided. Free. Windows 10 and 11, 64-bit. A single .exe, nothing to install.',
     tags: ['C#', '.NET 10', 'WPF', 'System.Printing', 'xUnit'],
     platforms: ['Windows'],
-    url: 'https://github.com/ashkansirous/print-the-damn-book',
-    displayUrl: 'github.com/ashkansirous/print-the-damn-book',
+    url: 'https://print-the-damn-book.sirous.uk/',
+    displayUrl: 'print-the-damn-book.sirous.uk',
     detailsUrl: 'https://sirous.uk/print-the-damn-book/',
-    cta: 'View source',
+    cta: 'Visit site',
     screenshot: bookShot,
     screenshotAlt:
-      'The Print the Damn Book Windows app showing a loaded twelve-page picture book with its sheet previews and print controls',
-    shotClass: 'h-auto w-[88%] object-contain object-top',
+      'Three picture-book pages fanned out: a cover reading Good Enough, a stadium scene and a closing page.',
+    shotClass: 'h-full w-full object-cover object-center',
+    frame: false,
   },
 ];
 
@@ -122,11 +131,11 @@ const tagStyles: Record<ShippedProduct['tagline'], string> = {
                 src={p.screenshot}
                 alt={p.screenshotAlt}
                 formats={['avif', 'webp']}
-                widths={[480, 800]}
+                widths={[480, 800, 960]}
                 sizes="(max-width: 640px) 90vw, 440px"
                 loading="lazy"
                 decoding="async"
-                class={`mx-auto mt-6 ${p.shotClass} rounded-t-xl shadow-xl shadow-ink/30 dark:shadow-black/50 ring-1 ring-ink/10 transition group-hover:-translate-y-1 dark:ring-white/10`}
+                class={p.frame ? `${FRAME_CLASSES} ${p.shotClass}` : p.shotClass}
               />
             </div>
             <div class="flex flex-1 flex-col p-7">
